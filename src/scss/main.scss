@@ -1,2 +1,182 @@
 // This is where you can import other stylesheets or write your scss code
-@import "../../node_modules/bootstrap/scss/bootstrap";
+// @import "../../node_modules/bootstrap/scss/bootstrap";
+
+$link-color: (
+    "dark-color": rgb(10, 6, 6),
+    "light-color": rgb(57, 168, 202)
+);
+
+$flex: (
+    "flex": flex,
+    "row": row
+);
+
+$card-bg-color: #e0ddb2;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+}
+
+nav {
+    // display: flex;
+    // padding: 0px;
+    // margin: 0;
+    ul {
+        display: flex;
+        justify-content: center;
+    }
+    li {
+        list-style: none;
+        padding: 10px;
+    }
+    a {
+        text-decoration: none;
+        color: map-get($link-color,"light-color");
+    }
+}
+
+header {
+    // border: 3px solid green;
+    height: 30vh;
+    text-align: center;
+    background-image: url(../images/header.jpg);
+    background-size: cover;
+    margin-top: 0px;
+    h1 {
+        color: map-get($link-color, "dark-color");
+        padding-top: 20px;
+    }
+
+}
+
+.cards {
+    // display: map-get($flex, "flex");
+    // flex-direction: map-get($flex, "row");
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 30px;
+.card {
+    width: 100%;
+    // border: 2px solid salmon;
+    // margin: 10px;
+    padding: 1px;
+    background-color: $card-bg-color;
+    
+}
+img {
+        width: 96%;
+        display: block;
+        margin: 10px auto;
+    }
+}
+
+.nested-div {
+    padding: 7px;
+}
+
+div h2 {
+    margin: 1px;
+}
+
+div p {
+    margin: 1px;
+}
+
+main {
+    padding: 10px;
+    margin-top: 10px;
+aside {
+    border: 3px solid lightgreen;
+    padding: 10px;
+    margin: 10px 0;
+}
+article {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+}
+
+footer {
+    background-color:rgb(57, 168, 202);
+    padding: 15px;
+    ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: whitesmoke;
+    }
+}
+
+@media (min-width: 700px)  {
+
+nav {
+    display: flex;justify-content: flex-end;
+    padding: 15px;
+
+}
+
+header {
+    height: 70vh;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+     "card1 card1 card2 card2"
+     ". card3 card3 .";
+     .card {
+         display: flex;
+         img {
+             width: 300px;
+         }
+     }
+     
+}
+
+.card:nth-child(1) {
+    grid-area: card1;
+    
+}
+.card:nth-child(2) {
+    grid-area: card2;
+}
+.card:nth-child(3) {
+    grid-area: card3;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+footer {
+    ul {
+        justify-content: center;
+       li {
+           margin: 10px;
+
+    } 
+    }
+    
+}
+}
+
+
+
